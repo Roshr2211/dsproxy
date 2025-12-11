@@ -1,0 +1,31 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: dsuser
+      POSTGRES_PASSWORD: dspass
+      POSTGRES_DB: dsdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
+
+  dsproxy:
+    build: .
+    depends_on:
+      - db
+      - redis
+    ports:
+      - "8080:8080"
+    environment:
+      - DATABASE_URL=postgres://dsuser:dspass@db:5432/dsdb?sslmode=disable
+      - REDIS_ADDR=redis:6379
+
+volumes:
+  db-data:
