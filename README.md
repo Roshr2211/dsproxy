@@ -2,7 +2,7 @@
 
 A high-performance Go proxy service with Redis caching, PostgreSQL batching, and Prometheus metrics.
 
-> **Note:** This is currently a single-instance implementation. A distributed version with horizontal scaling, message queue coordination, and high availability is planned for future releases.
+
 
 ## Features
 
