@@ -362,6 +362,4 @@ To enable horizontal scaling and high availability, the following enhancements a
 
 Contributions and suggestions for the distributed implementation are welcome!
 
-## License
 
-MIT
